@@ -10,7 +10,7 @@ str(sonar_df)
 summary(sonar_df)
 
 occ<-sonar_df$OCCUPATION
-print(occupation)
+print(occ)
 
 sonar_df$SALARY<-c(50000,60000,70000,40000,55000)
 print(sonar_df)
