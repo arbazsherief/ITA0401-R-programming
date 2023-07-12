@@ -1,0 +1,15 @@
+library(ggplot2)
+library(dplyr)
+data <- csv.read("air quality.csv")
+
+missing_values <- sapply(data, function(x) sum(is.na(x)))
+columns_to_drop <- names(missing_values[missing_values > 0 & missing_values/length(data) < 0.1])
+data <- data %>% select(-columns_to_drop) %>% na.omit()
+
+model <- lm(Ozone ~ Solar.R, data = data)
+
+ggplot(data, aes(x = Solar.R, y = Ozone)) +
+  geom_point() +
+  geom_smooth(method = "lm", formula = y ~ x, se = FALSE, color = "blue") +
+  labs(x = "Solar.R", y = "Ozone") +
+  theme_minimal()
