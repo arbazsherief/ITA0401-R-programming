@@ -1,0 +1,12 @@
+C <- c(78, 93, 68, 84, 90, 74, 64, 55, 80)
+mean_C <- mean(C)
+var_C <- var(C)
+quartiles_C <- quantile(C, probs = c(0.25, 0.5, 0.75))
+q1_C <- quartiles_C[1]
+q2_C <- quartiles_C[2]
+q3_C <- quartiles_C[3]
+cat("Mean:", mean_C, "\n")
+cat("Variance:", var_C, "\n")
+cat("1st Quartile:", q1_C, "\n")
+cat("2nd Quartile (Median):", q2_C, "\n")
+cat("3rd Quartile:", q3_C, "\n")
